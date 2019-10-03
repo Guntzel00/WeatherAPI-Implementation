@@ -29,11 +29,14 @@ window.addEventListener("load", ()=> {
                     console.log(data);
                     const { temperature, summary, icon} = data.currently;
 
+                    const date = new Date();
+                    const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', year: 'numeric', month: 'short', day: 'numeric' };
 
                     // Setting the values
                     temperatureValue.textContent = Math.floor(temperature);
                     temperatureDescription.textContent = summary;
                     locationName.textContent = data.timezone;
+                    locationTime.textContent = date.toLocaleString('en-US', options);              
 
                     // Setting icon
                     setIcons(icon, document.querySelector(".icon"));
